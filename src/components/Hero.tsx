@@ -77,13 +77,14 @@ export function Hero() {
               <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
                 Será
               </p>
-              <h1 className="font-display text-4xl font-light leading-tight sm:text-6xl md:text-7xl">
-                <span className="text-gradient-reveal">Lucca Miguel</span>
-                <span className="mx-3 font-script text-2xl text-muted-foreground sm:text-3xl">
+              <h1 className="font-display flex flex-col items-center gap-2 text-5xl font-medium leading-tight sm:text-6xl md:text-7xl">
+                <span className="text-gradient-gold drop-shadow-sm">Lucca Miguel</span>
+                <span className="font-script text-2xl font-normal text-muted-foreground sm:text-3xl">
                   ou
                 </span>
-                <span className="text-gradient-reveal">Maria Cecília</span>
-                <span className="ml-2">?</span>
+                <span className="text-gradient-gold drop-shadow-sm">
+                  Maria Cecília<span className="ml-1 text-foreground">?</span>
+                </span>
               </h1>
               <p className="font-script text-xl text-gold sm:text-2xl">
                 ✨ Venha descobrir com a gente ✨

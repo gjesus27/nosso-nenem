@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "5511999999999"; // placeholder — pode ser editado
+const WHATSAPP_NUMBER = "5511987293823";
 
 export function RsvpForm() {
   const [name, setName] = useState("");

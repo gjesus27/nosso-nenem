@@ -63,6 +63,24 @@ function Index() {
 
       <Hero />
 
+      {/* Bible verse */}
+      <section className="relative px-6 py-20 sm:py-24">
+        <div className="reveal-on-scroll glass shadow-elegant mx-auto max-w-2xl rounded-3xl px-8 py-12 text-center sm:px-14 sm:py-16">
+          <div className="mb-6 flex items-center justify-center gap-3 text-gold">
+            <span className="h-px w-10 bg-gold-soft" />
+            <span className="font-script text-lg">palavra de Deus</span>
+            <span className="h-px w-10 bg-gold-soft" />
+          </div>
+          <blockquote className="font-display text-2xl font-light italic leading-relaxed text-foreground sm:text-3xl md:text-4xl">
+            “Os filhos são <span className="text-gradient-gold not-italic font-medium">herança do Senhor</span>,
+            uma recompensa que ele dá.”
+          </blockquote>
+          <p className="mt-6 text-xs uppercase tracking-[0.35em] text-muted-foreground">
+            Salmos 127:3 · NVI
+          </p>
+        </div>
+      </section>
+
       {/* Event info */}
       <section
         id="evento"

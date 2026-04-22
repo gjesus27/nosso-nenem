@@ -18,7 +18,6 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden">
-      {/* Sky image bg */}
       <img
         src={heroSky}
         alt=""
@@ -37,7 +36,6 @@ export function Hero() {
 
       <SkyBackground />
 
-      {/* Floating teddy */}
       <img
         src={teddy}
         alt="Ursinho"
@@ -46,9 +44,8 @@ export function Hero() {
         className="animate-float-slow pointer-events-none absolute right-2 top-6 z-[1] h-32 w-32 opacity-90 sm:right-12 sm:top-12 sm:h-44 sm:w-44 md:h-56 md:w-56"
       />
 
-      {/* Content */}
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <p className="font-script mb-4 text-2xl text-gradient-gold sm:text-3xl animate-reveal-up">
+        <p className="font-script mb-4 animate-reveal-up text-2xl text-gradient-gold sm:text-3xl">
           Chá Revelação
         </p>
 
@@ -64,7 +61,7 @@ export function Hero() {
             <h1 className="animate-suspense font-display text-2xl font-light leading-tight text-foreground sm:text-4xl md:text-5xl">
               E queremos você conosco
               <br />
-              <span className="italic">para descobrir…</span>
+              <span className="italic">para descobrir...</span>
             </h1>
           )}
           {stage === 2 && (
@@ -74,9 +71,7 @@ export function Hero() {
           )}
           {stage === 3 && (
             <div className="animate-suspense space-y-4">
-              <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-                Será
-              </p>
+              <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Será</p>
               <h1 className="font-display flex flex-col items-center gap-2 text-5xl font-medium leading-tight sm:text-6xl md:text-7xl">
                 <span className="text-gradient-gold drop-shadow-sm">Lucca Miguel</span>
                 <span className="font-script text-2xl font-normal text-muted-foreground sm:text-3xl">
@@ -104,7 +99,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2">
         <div className="flex h-10 w-6 items-start justify-center rounded-full border border-gold-soft/60 p-1">
           <span className="h-2 w-1 animate-bounce rounded-full bg-gold" />

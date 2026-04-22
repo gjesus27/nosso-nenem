@@ -1,14 +1,14 @@
+import { Confetti } from "@/components/Confetti";
 import { Countdown } from "@/components/Countdown";
+import { FloatingBalloons } from "@/components/FloatingBalloons";
 import { Hero } from "@/components/Hero";
 import { RsvpForm } from "@/components/RsvpForm";
-import { Confetti } from "@/components/Confetti";
-import { FloatingBalloons } from "@/components/FloatingBalloons";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import teddy from "@/assets/teddy.png";
 import couple from "@/assets/gallery-couple.jpeg";
 import test from "@/assets/gallery-test.jpeg";
 import us1 from "@/assets/gallery-ultrasound-1.jpeg";
 import us2 from "@/assets/gallery-ultrasound-2.jpeg";
+import teddy from "@/assets/teddy.png";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 function openLocation() {
   const wazeUrl =
@@ -17,10 +17,19 @@ function openLocation() {
     "https://www.google.com/maps/search/?api=1&query=" +
     encodeURIComponent("Av. Francisco Poeta das Chagas, 297, Serraria, Diadema");
 
-  const w = window.open(wazeUrl, "_blank");
-  if (!w) {
+  const wazeWindow = window.open(wazeUrl, "_blank");
+  if (!wazeWindow) {
     window.location.href = mapsUrl;
+    return;
   }
+
+  setTimeout(() => {
+    try {
+      if (wazeWindow.closed === false) return;
+    } catch {
+      // Ignore cross-origin access errors.
+    }
+  }, 1500);
 }
 
 export default function App() {
@@ -30,6 +39,7 @@ export default function App() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       <FloatingBalloons />
       <Confetti />
+
       <Hero />
 
       <section className="relative px-6 py-20 sm:py-24">
@@ -40,8 +50,9 @@ export default function App() {
             <span className="h-px w-10 bg-gold-soft" />
           </div>
           <blockquote className="font-display text-2xl font-light italic leading-relaxed text-foreground sm:text-3xl md:text-4xl">
-            “Os filhos são <span className="text-gradient-gold not-italic font-medium">herança do Senhor</span>,
-            uma recompensa que ele dá.”
+            "Os filhos são{" "}
+            <span className="text-gradient-gold not-italic font-medium">herança do Senhor</span>,
+            uma recompensa que ele dá."
           </blockquote>
           <p className="mt-6 text-xs uppercase tracking-[0.35em] text-muted-foreground">
             Salmos 127:3 · NVI
@@ -81,7 +92,7 @@ export default function App() {
                   Horário
                 </div>
                 <div className="font-display mt-1 text-5xl font-light text-foreground sm:text-6xl">
-                  11<span className="text-gold">:</span>30
+                  18<span className="text-gold">:</span>00
                 </div>
               </div>
             </div>
@@ -126,11 +137,11 @@ export default function App() {
             loading="lazy"
           />
           <blockquote className="reveal-on-scroll font-display text-2xl font-light italic leading-relaxed text-foreground sm:text-4xl">
-            “Nossa maior alegria será ter
+            "Nossa maior alegria será ter
             <br />
             <span className="text-gradient-gold">você com a gente</span>
             <br />
-            nesse momento tão especial.”
+            nesse momento tão especial."
           </blockquote>
         </div>
       </section>
@@ -155,13 +166,13 @@ export default function App() {
               { src: us1, alt: "Ultrassom" },
               { src: us2, alt: "Ultrassom" },
               { src: test, alt: "Momento especial", tall: true },
-            ].map((img, i) => (
+            ].map((img, index) => (
               <div
-                key={i}
+                key={index}
                 className={`reveal-on-scroll btn-elegant shadow-elegant group relative overflow-hidden rounded-2xl ${
                   img.tall ? "row-span-2 aspect-[3/5]" : "aspect-square"
                 }`}
-                style={{ transitionDelay: `${i * 80}ms` }}
+                style={{ transitionDelay: `${index * 80}ms` }}
               >
                 <img
                   src={img.src}
@@ -184,7 +195,8 @@ export default function App() {
           </h2>
           <div className="glass shadow-soft mt-8 rounded-2xl p-8">
             <p className="font-display text-2xl italic text-foreground sm:text-3xl">
-              Fraldas tamanho <span className="text-gradient-gold not-italic">M ou G</span> 💛
+              Fraldas tamanho <span className="text-gradient-gold not-italic">M ou G</span>{" "}
+              <span aria-hidden>💛</span>
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
               Mas o mais importante é a sua presença
@@ -225,9 +237,9 @@ export default function App() {
             <span className="h-px w-12 bg-gold-soft" />
           </div>
           <p className="font-display text-2xl font-light italic text-foreground sm:text-3xl">
-            “Esperamos você para viver esse
+            "Esperamos você para viver esse
             <br />
-            momento <span className="text-gradient-gold not-italic">inesquecível</span> conosco.”
+            momento <span className="text-gradient-gold not-italic">inesquecível</span> conosco."
           </p>
           <p className="mt-10 text-xs uppercase tracking-[0.3em] text-muted-foreground">
             25 · 04 · 2026 · Diadema
